@@ -15,19 +15,26 @@ import random
 from freegames import square, vector
 #Se importan todas las librerías necesarias
 
+
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 #Define la posición inicial de cada uno
+
+
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
 #Cambia la dirección en que se mueve la serpiente
+
+
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 #Te muestra que la serpiente está en el rango de tablero
+
+
 def move():
     "Move snake forward one segment."
 #Esta función avanza a la serpiente una posición
@@ -57,6 +64,8 @@ def move():
     update()
     ontimer(move, 100)
 #Define el cuerpo de la serpiente
+
+
 setup(420, 420, 370, 0) #Define dimensiones del tablero
 hideturtle() #Esconde el cursor
 tracer(False) #Maneja la animación
@@ -66,9 +75,12 @@ colorv=random.choice(colors) #color vibora
 colorc=random.choice(colors) #color comida, ambos aleatorios.
 if colorv==colorc: #Esta función evita, que los colores salgan igual.
     colorc=random.choice(colors)
+
 onkey(lambda: change(10, 0), 'Right')#Hacen que al presiona la tecla, se cumpla una función
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+
+
 move()
 done()
