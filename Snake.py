@@ -49,20 +49,21 @@ def move():
     while dx == -dfood.x and dy == -dfood.y:
         #dx = random.choice(p)
         #dy = random.choice(p)
-	dx = randrange(-10, 11, 10)
-	dy = randrange(-10, 11, 10)
-    if 190 <= dfood.x:
+        dx = randrange(-10, 11, 10)
+        dy = randrange(-10, 11, 10)
+    if 190 <= dfood.x + food.x:
         dx = -10
-    if -200 >= dfood.x:
+    if -200 >= dfood.x + food.x:
         dx = 10
-    if 190 <= dfood.y:
+    if 190 <= dfood.y +food.y:
         dy = -10
-    if -200 >= dfood.y:
+    if -200 >= dfood.y + food.y:
         dy = 10
     dfood.x = dx
     dfood.y = dy
     food.move(dfood)
-
+#Esto función, sirve para mover la comida de manera aleatoria, sin salir del rango
+    
     head.move(aim)
 
     if not inside(head) or head in snake:
