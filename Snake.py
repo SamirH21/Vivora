@@ -11,8 +11,9 @@ Exercises
 
 from turtle import *
 from random import randrange
+import random
 from freegames import square, vector
-#Se importan todas las librerías necesarioas
+#Se importan todas las librerías necesarias
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
@@ -50,9 +51,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colorv)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorc)
     update()
     ontimer(move, 100)
 #Define el cuerpo de la serpiente
@@ -60,6 +61,11 @@ setup(420, 420, 370, 0) #Define dimensiones del tablero
 hideturtle() #Esconde el cursor
 tracer(False) #Maneja la animación
 listen()# Activda y desactiva la tortuga
+colors=["orange","green", "blue", "violet", "pink"] #Se define lista de colores
+colorv=random.choice(colors) #color vibora
+colorc=random.choice(colors) #color comida, ambos aleatorios.
+if colorv==colorc: #Esta función evita, que los colores salgan igual.
+    colorc=random.choice(colors)
 onkey(lambda: change(10, 0), 'Right')#Hacen que al presiona la tecla, se cumpla una función
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
