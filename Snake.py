@@ -19,6 +19,7 @@ from freegames import square, vector
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
+dfood = vector(0, -10)
 #Define la posición inicial de cada uno
 
 
@@ -39,6 +40,25 @@ def move():
     "Move snake forward one segment."
 #Esta función avanza a la serpiente una posición
     head = snake[-1].copy()
+
+    p = [-10, 10] #parte para el movimiento de la comida
+    dx = random.choice(p)
+    dy = random.choice(p)
+    while dx == -dfood.x and dy == -dfood.y:
+	dx = random.choice(p)
+	dy = random.choice(p)
+    if 190 < dfood.x:
+	dx = -10
+    if -200 > dfood.x:
+	dx = 10
+    if 190 < dfood.y:
+	dy = -10
+    if -200 > dfood.y:
+	dy = 10
+    dfood.x = dx
+    dfood.y = dy
+    food.move(dfood)
+
     head.move(aim)
 
     if not inside(head) or head in snake:
