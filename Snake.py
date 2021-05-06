@@ -41,12 +41,16 @@ def move():
 #Esta función avanza a la serpiente una posición
     head = snake[-1].copy()
 
-    p = [-10, 10] #parte para el movimiento de la comida
-    dx = random.choice(p)
-    dy = random.choice(p)
+    #p = [-10, 10] #parte para el movimiento de la comida
+    #dx = random.choice(p)
+    #dy = random.choice(p)
+    dx = randrange(-10, 11, 10)
+    dy = randrange(-10, 11, 10)
     while dx == -dfood.x and dy == -dfood.y:
-        dx = random.choice(p)
-        dy = random.choice(p)
+        #dx = random.choice(p)
+        #dy = random.choice(p)
+	dx = randrange(-10, 11, 10)
+	dy = randrange(-10, 11, 10)
     if 190 <= dfood.x:
         dx = -10
     if -200 >= dfood.x:
