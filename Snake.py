@@ -45,16 +45,16 @@ def move():
     dx = random.choice(p)
     dy = random.choice(p)
     while dx == -dfood.x and dy == -dfood.y:
-	dx = random.choice(p)
-	dy = random.choice(p)
-    if 190 < dfood.x:
-	dx = -10
-    if -200 > dfood.x:
-	dx = 10
-    if 190 < dfood.y:
-	dy = -10
-    if -200 > dfood.y:
-	dy = 10
+        dx = random.choice(p)
+        dy = random.choice(p)
+    if 190 <= dfood.x:
+        dx = -10
+    if -200 >= dfood.x:
+        dx = 10
+    if 190 <= dfood.y:
+        dy = -10
+    if -200 >= dfood.y:
+        dy = 10
     dfood.x = dx
     dfood.y = dy
     food.move(dfood)
@@ -93,7 +93,7 @@ listen()# Activda y desactiva la tortuga
 colors=["orange","green", "blue", "violet", "pink"] #Se define lista de colores
 colorv=random.choice(colors) #color vibora
 colorc=random.choice(colors) #color comida, ambos aleatorios.
-if colorv==colorc: #Esta función evita, que los colores salgan igual.
+while colorv==colorc: #Esta función evita, que los colores salgan igual.
     colorc=random.choice(colors)
 
 onkey(lambda: change(10, 0), 'Right')#Hacen que al presiona la tecla, se cumpla una función
